@@ -1,7 +1,8 @@
 import React from 'react';
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
-const MyToysRow = ({ toy }) => {
-    const { picture, name, quantity, price } = toy;
+const MyToysRow = ({ toy, handleDelete }) => {
+    const { _id, picture, name, quantity, price } = toy;
     return (
         <tr>
             <td>
@@ -18,7 +19,10 @@ const MyToysRow = ({ toy }) => {
             </td>
             <td>{price}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <div className='flex gap-2'>
+                    <button className='btn btn-xs btn-ghost'><AiFillEdit className='text-xl'></AiFillEdit></button>
+                    <button onClick={() => handleDelete(_id)} className='btn btn-xs btn-ghost'><AiFillDelete className='text-xl'></AiFillDelete></button>
+                </div>
             </th>
         </tr>
     );
