@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMenu, HiMenuAlt1, HiX } from "react-icons/hi";
 import logo from '../../assets/logo.png';
 import profile from '../../assets/profile.png'
+import { AuthContext } from '../../providers/AuthProvider';
 const Header = () => {
     const [menu, setMenu] = useState(false);
-    const [user, setUser] = useState(null);
+    const { user, logOut } = useContext(AuthContext);
 
     const handleLogOut = () => {
-
+        logOut()
+            .then(() => { })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     return (
@@ -21,9 +26,13 @@ const Header = () => {
                 </div>
                 <div className="lg:flex gap-5 hidden">
                     <NavLink to='/' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl' : 'font-semibold text-white text-xl hover:text-success'}>Home</NavLink>
-                    <NavLink to='/' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl' : 'font-semibold text-white text-xl hover:text-success'}> All Toys</NavLink>
-                    <NavLink to='/' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl' : 'font-semibold text-white text-xl hover:text-success'}>My Toys</NavLink>
-                    <NavLink to='/' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl' : 'font-semibold text-white text-xl hover:text-success'}>Add A Toy</NavLink>
+                    <NavLink to='/all-toys' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl' : 'font-semibold text-white text-xl hover:text-success'}> All Toys</NavLink>
+                    {
+                        user &&
+                        <>
+                            <NavLink to='/my-toys' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl' : 'font-semibold text-white text-xl hover:text-success'}>My Toys</NavLink>
+                            <NavLink to='/add-toy' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl' : 'font-semibold text-white text-xl hover:text-success'}>Add A Toy</NavLink></>
+                    }
                     <NavLink to='/blog' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl' : 'font-semibold text-white text-xl hover:text-success'}>Blog</NavLink>
 
                 </div>
