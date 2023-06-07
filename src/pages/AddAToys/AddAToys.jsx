@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const AddAToys = () => {
     const { user } = useContext(AuthContext);
@@ -33,7 +34,21 @@ const AddAToys = () => {
             description
         }
 
-        console.log(toy)
+        fetch('http://localhost:5000/toys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(toy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.insertedId) {
+                    toast.success('Toy successfully added !');
+                    form.reset();
+                }
+            })
     }
 
     return (
