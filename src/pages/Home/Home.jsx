@@ -15,10 +15,10 @@ const Home = () => {
 
 
             {/* extra section 1 */}
-            <div className='container mx-auto bg-slate-200 rounded-lg my-6'>
+            <div data-aos="zoom-in" data-aos-duration="1000"  className='container mx-auto bg-slate-200 rounded-lg my-6'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center justify-items-center gap-10  p-10'>
                     <div className='w-full'>
-                        <img className='opacity-90 lg:h-[70vh] w-full rounded' src="/assets/banner2.jpg" alt="" />
+                        <img className='opacity-90  w-full rounded' src="/assets/banner2.jpg" alt="" />
                     </div>
                     <div>
                         <h3 className='text-4xl font-semibold'>Discover a World of Wonder at Our Toy Shop Wonderland!</h3>
@@ -28,7 +28,7 @@ const Home = () => {
                 </div>
             </div>
             {/* extra section 2 */}
-            <div className='bg-info-content my-5'>
+            <div data-aos="zoom-in" data-aos-duration="1000" className='bg-info-content my-5'>
                 <div className='container mx-auto grid lg:divide-x-2 grid-cols-1 lg:grid-cols-4 justify-center items-center  py-5 gap-2'>
                     <div className='flex gap-3 px-2'>
                         <TbTruckDelivery className='text-6xl text-white'></TbTruckDelivery>

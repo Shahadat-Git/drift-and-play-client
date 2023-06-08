@@ -3,6 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import CategoryCard from './CategoryCard';
 import Spinner from '../../shared/Spinner/Spinner';
+import AOS from "aos";
 
 const ShopByCategory = () => {
     const [toys, setToys] = useState([]);
@@ -15,6 +16,11 @@ const ShopByCategory = () => {
                 setToys(data)
             })
     }, [])
+
+    useEffect(() => {
+        AOS.init();
+        AOS.refresh();
+    }, []);
 
     const handleSelect = (index) => {
         let category;
@@ -40,7 +46,7 @@ const ShopByCategory = () => {
 
 
     return (
-        <div className='container mx-auto'>
+        <div data-aos="zoom-in" data-aos-duration="1000" className='container mx-auto'>
             <div className='px-2 lg:px-0 my-5  rounded-lg'>
                 <Tabs defaultIndex={0} onSelect={(index) => handleSelect(index)}>
                     <TabList className='bg-base-300 rounded-lg text-xl'>
