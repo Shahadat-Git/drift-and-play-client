@@ -29,7 +29,9 @@ const Footer = () => {
             <footer className="footer container mx-auto px-10 py-4 border-t bg-info-content text-white border-base-300">
                 <div className="items-center grid-flow-col">
                     <img className='w-24' src={logo} alt="" />
-                    <p>Drift & Play<br />Providing Toys since 2020</p>
+                    <p>Drift & Play<br />Providing Toys since 2020 <br />
+                    518 Lake Bridge Ln - Apopka - Florida
+                    </p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4">

@@ -73,8 +73,7 @@ const AddAToys = () => {
                     <select className='block w-full h-16 text-2xl pl-5 focus:outline-success my-2 rounded-lg' name='subCategory'>
                         <option>Sports Cars</option>
                         <option>Trucks</option>
-                        <option>Mini Fire Truck</option>
-                        <option>Mini Police Cars</option>
+                        <option>Police Cars</option>
                     </select>
 
                     <label className='block text-2xl font-semibold'>Price : </label>

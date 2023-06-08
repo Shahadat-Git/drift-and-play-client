@@ -18,10 +18,10 @@ const ToyDetails = () => {
     }, [])
 
     return (
-        <div className='container mx-auto'>
-            <h3 className='text-center text-2xl font-semibold mt-5 border bg-success text-white py-2 rounded-full'>Toy Details</h3>
+        <div className='container mx-auto bg-base-200  lg:my-10 rounded-lg'>
+            <h3 className='text-center text-2xl font-semibold  border bg-success text-white py-2 rounded'>Toy Details</h3>
             <div className='p-2'>
-                <img className='shadow-lg w-full lg:w-80 h-80 mx-auto rounded-lg my-5' src={picture} alt="" />
+                <img className='shadow-lg w-full lg:w-80 h-80 mx-auto rounded-lg border border-success my-5' src={picture} alt="" />
                 <div className='bg-green-100 border-success border-2 rounded-lg flex flex-col gap-2 p-2 lg:p-10'>
                     <p className='text-xl'>Toy Name : {name}</p>
                     <p className='text-xl'>Seller Name : {sellerName && sellerName}</p>
