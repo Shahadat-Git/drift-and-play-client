@@ -20,8 +20,8 @@ const MyToysRow = ({ toy, handleDelete, handleEdit }) => {
             <td>${price}</td>
             <th>
                 <div className='flex gap-2'>
-                    <button onClick={() => handleEdit(_id)} className='btn btn-xs btn-ghost'><AiFillEdit className='text-xl'></AiFillEdit></button>
-                    <button onClick={() => handleDelete(_id)} className='btn btn-xs btn-ghost'><AiFillDelete className='text-xl'></AiFillDelete></button>
+                    <button title='Edit' onClick={() => handleEdit(_id)} className='btn btn-xs btn-ghost'><AiFillEdit className='text-xl'></AiFillEdit></button>
+                    <button title='Delete' onClick={() => handleDelete(_id)} className='btn btn-xs btn-ghost'><AiFillDelete className='text-xl'></AiFillDelete></button>
                 </div>
             </th>
         </tr>

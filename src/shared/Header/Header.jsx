@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { HiMenu, HiMenuAlt1, HiX } from "react-icons/hi";
+import { HiMenuAlt1, HiX } from "react-icons/hi";
 import logo from '../../assets/logo.png';
 import profile from '../../assets/profile.png'
 import { AuthContext } from '../../providers/AuthProvider';
@@ -69,9 +69,13 @@ const Header = () => {
                 menu && <div className='lg:hidden flex flex-col gap-4 pt-5'>
                     <div className=" lg:hidden flex flex-col gap-4">
                         <NavLink to="/" className={({ isActive }) => isActive ? 'font-semibold text-success text-xl ' : 'font-semibold text-white text-xl '}>Home</NavLink>
-                        <NavLink to="/" className={({ isActive }) => isActive ? 'font-semibold text-success text-xl ' : 'font-semibold text-white text-xl '}> All Toys</NavLink>
-                        <NavLink to="/" className={({ isActive }) => isActive ? 'font-semibold text-success text-xl ' : 'font-semibold text-white text-xl '}>My Toys</NavLink>
-                        <NavLink to="/" className={({ isActive }) => isActive ? 'font-semibold text-success text-xl ' : 'font-semibold text-white text-xl '}>Add A Toy</NavLink>
+                        <NavLink to="/all-toys" className={({ isActive }) => isActive ? 'font-semibold text-success text-xl ' : 'font-semibold text-white text-xl '}> All Toys</NavLink>
+                        {
+                            user && <>
+                                <NavLink to="/my-toys" className={({ isActive }) => isActive ? 'font-semibold text-success text-xl ' : 'font-semibold text-white text-xl '}>My Toys</NavLink>
+                                <NavLink to="/add-toy" className={({ isActive }) => isActive ? 'font-semibold text-success text-xl ' : 'font-semibold text-white text-xl '}>Add A Toy</NavLink>
+                            </>
+                        }
                         <NavLink to='/blog' className={({ isActive }) => isActive ? 'font-semibold text-success text-xl ' : 'font-semibold text-white text-xl '}>Blog</NavLink>
                         {
                             user ? <div className="dropdown dropdown-content">

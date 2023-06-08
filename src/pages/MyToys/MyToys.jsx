@@ -3,6 +3,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2';
 import { toast } from 'react-hot-toast';
+import Spinner from '../../shared/Spinner/Spinner';
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
@@ -101,29 +102,32 @@ const MyToys = () => {
         <div className='container mx-auto my-20'>
             <h2 className='text-center text-2xl font-semibold mb-5'>My Total Toys : {toys.length}</h2>
             <div className="overflow-x-auto">
-                <table className="table">
-                    {/* head */}
-                    <thead>
-                        <tr>
-                            <th>Photo</th>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            toys?.map(toy => <MyToysRow
-                                key={toy._id}
-                                toy={toy}
-                                handleDelete={handleDelete}
-                                handleEdit={handleEdit}
-                            ></MyToysRow>)
-                        }
-                    </tbody>
+                {
+                    toys ? <table className="table">
+                        {/* head */}
+                        <thead>
+                            <tr>
+                                <th>Photo</th>
+                                <th>Name</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                toys?.map(toy => <MyToysRow
+                                    key={toy._id}
+                                    toy={toy}
+                                    handleDelete={handleDelete}
+                                    handleEdit={handleEdit}
+                                ></MyToysRow>)
+                            }
+                        </tbody>
 
-                </table>
+                    </table> :
+                        <Spinner></Spinner>
+                }
 
                 {/* modal */}
                 {
