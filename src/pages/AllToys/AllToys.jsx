@@ -41,6 +41,24 @@ const AllToys = () => {
                 setToys(data)
             })
     }
+
+    const handleDescending = () => {
+        fetch(`http://localhost:5000/toys?sort=descending`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setToys(data)
+            })
+    }
+
+    const handleAscending = () => {
+        fetch(`http://localhost:5000/toys?sort=ascending`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setToys(data)
+            })
+    }
     return (
         <div className='container mx-auto my-20'>
             <h2 className='text-center text-2xl font-semibold mb-5'>Total Toys : {toys.length}</h2>
@@ -48,6 +66,19 @@ const AllToys = () => {
                 <input type="text" name='search' placeholder="Search toy" className="block w-full h-10 pl-5 focus:outline-success my-2 rounded-l-lg" />
                 <input className='btn btn-primary btn-sm h-10 rounded-r-lg rounded-l-none' type="submit" value="Search" />
             </form>
+
+            {/* sort btn */}
+
+            <div className='flex justify-end'>
+                <div className="dropdown dropdown-bottom dropdown-end">
+                    <label tabIndex={0} className="btn m-1">Sort By</label>
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-neutral text-white rounded-box w-52 z-10">
+                        <li> <button onClick={handleDescending} className='hover:bg-neutral-500'>Price (Hign {'>'}  Low)</button> </li>
+                        <li><button onClick={handleAscending} className='hover:bg-neutral-500'>Price (Low {'>'}  Hign)</button></li>
+                    </ul>
+                </div>
+            </div>
+
             <div className="overflow-x-auto">
                 {
                     toys.length > 0 ? <table className="table">

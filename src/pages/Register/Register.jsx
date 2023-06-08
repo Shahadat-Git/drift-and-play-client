@@ -7,7 +7,7 @@ import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
     const [error, setError] = useState('');
-    const { createUser, editUser, googleSignIn, githubSignIn, } = useContext(AuthContext);
+    const { createUser, editUser, googleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
