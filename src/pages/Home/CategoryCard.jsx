@@ -21,17 +21,25 @@ const CategoryCard = ({ toy }) => {
                 <img src={picture} className="rounded-xl h-full w-full border border-success" />
             </figure>
             <div className="card-body items-center text-center">
-                <h2 className="card-title">{name}</h2>
-                <div className='flex justify-evenly w-full'>
+
+                <div className='flex justify-between w-full'>
                     <div>
-                        <p className='text-lg flex items-center gap-1'><AiFillDollarCircle className='text-success'></AiFillDollarCircle> {price}</p>
+                        <h2 className="card-title">{name}</h2>
                     </div>
                     <div>
-                        <p className='text-lg flex items-center gap-1'><AiFillStar className='text-success'></AiFillStar> {rating}</p>
+                        <button onClick={() => handleViewDetails(_id)} className="btn btn-outline">View Details</button>
+                    </div>
+                </div>
+                <div className='flex justify-between w-full'>
+                    <div>
+                        <p className='text-xl font-semibold flex items-center gap-1'><AiFillDollarCircle className='text-success'></AiFillDollarCircle> {price}</p>
+                    </div>
+                    <div>
+                        <p className='text-xl font-semibold flex items-center gap-1'><AiFillStar className='text-success'></AiFillStar> {rating}</p>
                     </div>
                 </div>
                 <div className="card-actions">
-                    <button onClick={() => handleViewDetails(_id)} className="btn btn-primary">View Details</button>
+
                 </div>
             </div>
         </div>
