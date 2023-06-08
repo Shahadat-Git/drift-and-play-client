@@ -41,9 +41,9 @@ const ShopByCategory = () => {
 
     return (
         <div className='container mx-auto'>
-            <div className='px-2 lg:px-0 my-5'>
+            <div className='px-2 lg:px-0 my-5  rounded-lg'>
                 <Tabs defaultIndex={0} onSelect={(index) => handleSelect(index)}>
-                    <TabList>
+                    <TabList className='bg-base-300 rounded-lg text-xl'>
                         <Tab>Sports Cars</Tab>
                         <Tab>Truck</Tab>
                         <Tab>Police Cars

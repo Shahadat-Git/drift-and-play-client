@@ -1,0 +1,41 @@
+import React, { useEffect, useState } from 'react';
+import Spinner from '../../shared/Spinner/Spinner';
+
+const Gallery = () => {
+    const [toys, setToys] = useState(null)
+    useEffect(() => {
+        fetch('http://localhost:5000/gallery?limit=8')
+            .then(res => res.json())
+            .then(data => {
+                setToys(data)
+            })
+    }, [])
+    return (
+        <div className='container mx-auto my-10'>
+            <h3 className='text-center mb-10 text-4xl font-semibold bg-info-content py-5 text-white rounded-tl-full rounded-br-full shadow-lg'>Exclusive Cars</h3>
+            {
+                toys ?
+                    <div className='grid grid-cols-1 lg:grid-cols-4 gap-3 px-1 lg:px-0'>
+                        {
+                            toys.map(toy => <div style={{ background: `url(${toy.picture})`, backgroundSize: 'cover',backgroundPosition: 'center' }}
+                                className='rounded h-96 lg:h-[250px] w-full shadow-lg relative'
+                                key={toy._id}
+                            >
+                                <h3 className='absolute bottom-2 ml-2 text-4xl lg:text-2xl font-semibold text-neutral'>{toy.name}</h3>
+                            </div>
+                            )
+                        }
+                    </div> :
+                    <Spinner></Spinner>
+            }
+        </div>
+    );
+};
+
+export default Gallery;
+
+{/* <img
+    className=' rounded h-96 lg:h-[250px] w-full shadow-lg'
+    src={toy.picture}
+    key={toy._id}
+    alt="" /> */}
