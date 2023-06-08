@@ -14,14 +14,14 @@ const AllToys = () => {
         fetch(`http://localhost:5000/toys`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setToys(data)
             })
 
     }, [])
 
     const handleViweDetails = (id) => {
-        console.log(id)
+        // console.log(id)
         if (!user) {
             toast.error('You have to log in first to view details')
         }
