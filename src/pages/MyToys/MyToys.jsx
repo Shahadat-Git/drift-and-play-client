@@ -21,6 +21,7 @@ const MyToys = () => {
 
     }, [toy])
 
+
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
@@ -103,7 +104,7 @@ const MyToys = () => {
             <h2 className='text-center text-2xl font-semibold mb-5'>My Total Toys : {toys.length}</h2>
             <div className="overflow-x-auto">
                 {
-                    toys ? <table className="table">
+                    toys.length > 0 ? <table className="table">
                         {/* head */}
                         <thead>
                             <tr>

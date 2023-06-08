@@ -11,7 +11,7 @@ const AllToys = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys`)
+        fetch(`http://localhost:5000/toys?limit=20`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -27,9 +27,27 @@ const AllToys = () => {
         }
         navigate(`/toy/${id}`)
     }
+
+    const handleSearch = event => {
+        event.preventDefault();
+
+        const form = event.target;
+        const search = form.search.value;
+
+        fetch(`http://localhost:5000/toys?name=${search}`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setToys(data)
+            })
+    }
     return (
         <div className='container mx-auto my-20'>
             <h2 className='text-center text-2xl font-semibold mb-5'>Total Toys : {toys.length}</h2>
+            <form onSubmit={handleSearch} className='bg-base-200 p-2 flex items-center rounded'>
+                <input type="text" name='search' placeholder="Search toy" className="block w-full h-10 pl-5 focus:outline-success my-2 rounded-l-lg" />
+                <input className='btn btn-primary btn-sm h-10 rounded-r-lg rounded-l-none' type="submit" value="Search" />
+            </form>
             <div className="overflow-x-auto">
                 {
                     toys.length > 0 ? <table className="table">

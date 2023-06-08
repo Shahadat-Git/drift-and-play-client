@@ -46,7 +46,7 @@ const AddAToys = () => {
                 // console.log(data)
                 if (data.insertedId) {
                     toast.success('Toy successfully added !');
-                    form.reset();
+                    // form.reset();
                 }
             })
     }
