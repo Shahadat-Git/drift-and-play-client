@@ -87,7 +87,7 @@ const AddAToys = () => {
                     <input className='block w-full h-16 text-2xl pl-5 focus:outline-success my-2 rounded-lg' type="text" name='quantity' placeholder='Available quantity' required />
 
                     <label className='block text-2xl font-semibold'>Detail description: </label>
-                    <input className='block w-full h-16 text-2xl pl-5 focus:outline-success my-2 rounded-lg' type="text" name='description' placeholder='Detail description' required />
+                    <textarea className="textarea w-full h-32 text-2xl pl-5 focus:outline-success my-2 rounded-lg" type="text" name='description' placeholder='Detail description' required></textarea>
 
 
 

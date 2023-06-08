@@ -1,11 +1,14 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2';
+import { toast } from 'react-hot-toast';
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
+    const [toy, setToy] = useState({});
     const { user } = useContext(AuthContext);
+    const formRef = useRef(null);
 
     useEffect(() => {
         fetch(`http://localhost:5000/toys?email=${user.email}`)
@@ -14,7 +17,8 @@ const MyToys = () => {
                 // console.log(data)
                 setToys(data)
             })
-    }, [])
+
+    }, [toy])
 
     const handleDelete = (id) => {
         Swal.fire({
@@ -27,7 +31,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys?id=${id}`, {
+                fetch(`http://localhost:5000/toys/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -47,6 +51,51 @@ const MyToys = () => {
 
             }
         })
+    }
+
+    const handleEdit = (id) => {
+        fetch(`http://localhost:5000/toys/${id}`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data._id) {
+                    setToy(data);
+                    window.edidToy.showModal();
+                }
+            })
+
+    }
+
+    const handleFinalEdit = () => {
+
+        const form = formRef.current;
+        const price = form.price.value;
+        const quantity = form.quantity.value;
+        const description = form.description.value;
+
+        const updatedToy = {
+            price,
+            quantity,
+            description
+        }
+
+        fetch(`http://localhost:5000/toys/${toy._id}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(updatedToy)
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if (data.modifiedCount) {
+                    setToy({ ...toy })
+                    toast.success('Successfully Updated!')
+                }
+            })
+        form.reset();
+
     }
     return (
         <div className='container mx-auto my-20'>
@@ -69,11 +118,36 @@ const MyToys = () => {
                                 key={toy._id}
                                 toy={toy}
                                 handleDelete={handleDelete}
+                                handleEdit={handleEdit}
                             ></MyToysRow>)
                         }
                     </tbody>
 
                 </table>
+
+                {/* modal */}
+                {
+                    toy &&
+                    <dialog id="edidToy" className="modal">
+                        <form ref={formRef} method="dialog" className="modal-box">
+                            <button htmlFor="edidToy" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                            <h3 className="font-bold text-lg text-center">Update This Toy</h3>
+                            <div>
+                                <label className='block'>Price : </label>
+                                <input className='block w-full h-10 pl-2 outline outline-1 focus:outline-success my-2 rounded-lg' defaultValue={toy.price} type="text" name='price' placeholder=' Price' />
+
+                                <label className='block'>Available quantity : </label>
+                                <input className='block w-full h-10 pl-2 outline outline-1 focus:outline-success my-2 rounded-lg' defaultValue={toy.quantity} type="text" name='quantity' placeholder=' Quantity' />
+
+                                <label className='block'> Toy description : </label>
+                                <textarea className="textarea w-full h-32 outline outline-1 focus:outline-success my-2 rounded-lg" defaultValue={toy.description} type="text" name='description' placeholder='Detail description'></textarea>
+                                <div className='flex justify-center'>
+                                    <input onClick={handleFinalEdit} className='btn btn-success' type="submit" value='Update' />
+                                </div>
+                            </div>
+                        </form>
+                    </dialog>
+                }
             </div>
         </div>
     );

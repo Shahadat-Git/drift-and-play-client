@@ -1,7 +1,7 @@
 import React from 'react';
 import { AiFillDelete, AiFillEdit } from "react-icons/ai";
 
-const MyToysRow = ({ toy, handleDelete }) => {
+const MyToysRow = ({ toy, handleDelete, handleEdit }) => {
     const { _id, picture, name, quantity, price } = toy;
     return (
         <tr>
@@ -17,10 +17,10 @@ const MyToysRow = ({ toy, handleDelete }) => {
             <td>
                 {quantity}
             </td>
-            <td>{price}</td>
+            <td>${price}</td>
             <th>
                 <div className='flex gap-2'>
-                    <button className='btn btn-xs btn-ghost'><AiFillEdit className='text-xl'></AiFillEdit></button>
+                    <button onClick={() => handleEdit(_id)} className='btn btn-xs btn-ghost'><AiFillEdit className='text-xl'></AiFillEdit></button>
                     <button onClick={() => handleDelete(_id)} className='btn btn-xs btn-ghost'><AiFillDelete className='text-xl'></AiFillDelete></button>
                 </div>
             </th>
