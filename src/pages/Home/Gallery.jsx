@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 const Gallery = () => {
     const [toys, setToys] = useState(null)
     useEffect(() => {
-        fetch('http://localhost:5000/gallery?limit=8')
+        fetch('https://drift-and-play-server.vercel.app/gallery?limit=8')
             .then(res => res.json())
             .then(data => {
                 setToys(data)
