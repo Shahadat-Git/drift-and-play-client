@@ -4,6 +4,7 @@ import Spinner from '../../shared/Spinner/Spinner';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const AllToys = () => {
     const [toys, setToys] = useState([]);
@@ -61,6 +62,9 @@ const AllToys = () => {
     }
     return (
         <div className='container mx-auto my-20'>
+            <Helmet>
+                <title>Drift & Play | All Toys</title>
+            </Helmet>
             <h2 className='text-center text-2xl font-semibold mb-5'>Total Toys : {toys.length}</h2>
             <form onSubmit={handleSearch} className='bg-base-200 p-2 flex items-center rounded'>
                 <input type="text" name='search' placeholder="Search toy" className="block w-full h-10 pl-5 focus:outline-success my-2 rounded-l-lg" />

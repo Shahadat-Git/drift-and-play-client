@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const AddAToys = () => {
     const { user } = useContext(AuthContext);
@@ -46,13 +47,16 @@ const AddAToys = () => {
                 // console.log(data)
                 if (data.insertedId) {
                     toast.success('Toy successfully added !');
-                    // form.reset();
+                    form.reset();
                 }
             })
     }
 
     return (
         <div className='container px-1 mx-auto my-10 lg:w-6/12'>
+            <Helmet>
+                <title>Drift & Play | Add a toys</title>
+            </Helmet>
             <div className='bg-base-200  rounded-lg px-5 py-10 lg:px-10 lg:py-20'>
                 <h3 className='text-center text-4xl font-semibold'>Add a new toy!</h3>
 

@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import {  FaGoogle } from "react-icons/fa";
+import { FaGoogle } from "react-icons/fa";
 import { useState } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useContext } from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { signInUser, googleSignIn,  } = useContext(AuthContext);
+    const { signInUser, googleSignIn, } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -61,6 +62,9 @@ const Login = () => {
 
     return (
         <div className='container px-1 mx-auto my-10 lg:w-6/12'>
+            <Helmet>
+                <title>Drift & Play | Login</title>
+            </Helmet>
             <div className='bg-base-200  rounded-lg px-5 py-10 lg:px-10 lg:py-20'>
                 <h3 className='text-center text-4xl font-semibold'>Please Login</h3>
                 {

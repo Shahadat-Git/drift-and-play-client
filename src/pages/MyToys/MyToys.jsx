@@ -4,6 +4,7 @@ import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2';
 import { toast } from 'react-hot-toast';
 import Spinner from '../../shared/Spinner/Spinner';
+import { Helmet } from 'react-helmet-async';
 
 const MyToys = () => {
     const [toys, setToys] = useState([]);
@@ -101,6 +102,9 @@ const MyToys = () => {
     }
     return (
         <div className='container mx-auto my-20'>
+            <Helmet>
+                <title>Drift & Play | My Toys</title>
+            </Helmet>
             <h2 className='text-center text-2xl font-semibold mb-5'>My Total Toys : {toys.length}</h2>
             <div className="overflow-x-auto">
                 {

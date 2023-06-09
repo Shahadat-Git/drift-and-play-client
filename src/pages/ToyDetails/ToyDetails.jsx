@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Spinner from '../../shared/Spinner/Spinner';
+import { Helmet } from 'react-helmet-async';
 
 const ToyDetails = () => {
     const [toy, setToy] = useState({});
@@ -19,6 +20,9 @@ const ToyDetails = () => {
 
     return (
         <div className='container mx-auto bg-base-200  lg:my-10 rounded-lg mb-5'>
+            <Helmet>
+                <title>Drift & Play | {`${name}`}</title>
+            </Helmet>
             <h3 className='text-center text-2xl font-semibold  border bg-info-content text-white py-2 rounded'>Toy Details</h3>
             <div>
                 <img className='shadow-lg w-full lg:w-80 h-80 mx-auto rounded-lg border border-white my-5' src={picture} alt="" />

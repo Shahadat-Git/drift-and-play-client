@@ -5,17 +5,21 @@ import Gallery from './Gallery';
 import { TbTruckDelivery } from "react-icons/tb";
 import { BiDownload } from "react-icons/bi";
 import { BsFillTelephoneFill } from "react-icons/bs";
+import { Helmet } from 'react-helmet-async';
 
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Drift & Play | Home</title>
+            </Helmet>
             <Banner></Banner>
             <Gallery></Gallery>
             <ShopByCategory></ShopByCategory>
 
 
             {/* extra section 1 */}
-            <div data-aos="zoom-in" data-aos-duration="1000"  className='container mx-auto bg-slate-200 rounded-lg my-6'>
+            <div data-aos="zoom-in" data-aos-duration="1000" className='container mx-auto bg-slate-200 rounded-lg my-6'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 justify-center items-center justify-items-center gap-10  p-10'>
                     <div className='w-full'>
                         <img className='opacity-90  w-full rounded' src="/assets/banner2.jpg" alt="" />
