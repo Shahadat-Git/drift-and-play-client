@@ -9,7 +9,7 @@ const ShopByCategory = () => {
     const [toys, setToys] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?category=sports`)
+        fetch(`https://drift-and-play-server.vercel.app/toys?category=sports`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -35,7 +35,7 @@ const ShopByCategory = () => {
             category = 'police';
         }
 
-        fetch(`http://localhost:5000/toys?category=${category}`)
+        fetch(`https://drift-and-play-server.vercel.app/toys?category=${category}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)

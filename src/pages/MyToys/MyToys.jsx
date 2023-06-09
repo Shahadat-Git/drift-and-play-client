@@ -13,7 +13,7 @@ const MyToys = () => {
     const formRef = useRef(null);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?email=${user.email}`)
+        fetch(`https://drift-and-play-server.vercel.app/toys?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -34,7 +34,7 @@ const MyToys = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/toys/${id}`, {
+                fetch(`https://drift-and-play-server.vercel.app/toys/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
@@ -57,7 +57,7 @@ const MyToys = () => {
     }
 
     const handleEdit = (id) => {
-        fetch(`http://localhost:5000/toys/${id}`)
+        fetch(`https://drift-and-play-server.vercel.app/toys/${id}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -82,7 +82,7 @@ const MyToys = () => {
             description
         }
 
-        fetch(`http://localhost:5000/toys/${toy._id}`, {
+        fetch(`https://drift-and-play-server.vercel.app/toys/${toy._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

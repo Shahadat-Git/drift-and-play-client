@@ -13,7 +13,7 @@ const ToyDetails = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/${id}`)
+        fetch(`https://drift-and-play-server.vercel.app/toys/${id}`)
             .then(res => res.json())
             .then(data => setToy(data))
     }, [])

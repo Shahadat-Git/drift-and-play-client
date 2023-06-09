@@ -35,7 +35,7 @@ const AddAToys = () => {
             description
         }
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://drift-and-play-server.vercel.app/toys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -84,8 +84,8 @@ const Header = () => {
                                         <img title={user.displayName && user.displayName} src={user.photoURL ? user.photoURL : profile} />
                                     </div>
                                 </label>
-                                <ul tabIndex={0} className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                                    <li onClick={handleLogOut}><p>Logout</p></li>
+                                <ul className="z-10 mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                                    <li ><button onClick={handleLogOut}>Logout</button></li>
                                 </ul>
                             </div>
 

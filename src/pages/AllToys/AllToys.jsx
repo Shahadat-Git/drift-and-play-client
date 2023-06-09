@@ -12,7 +12,7 @@ const AllToys = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/toys?limit=20`)
+        fetch(`https://drift-and-play-server.vercel.app/toys?limit=20`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -35,7 +35,7 @@ const AllToys = () => {
         const form = event.target;
         const search = form.search.value;
 
-        fetch(`http://localhost:5000/toys?name=${search}`)
+        fetch(`https://drift-and-play-server.vercel.app/toys?name=${search}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -44,7 +44,7 @@ const AllToys = () => {
     }
 
     const handleDescending = () => {
-        fetch(`http://localhost:5000/toys?sort=descending`)
+        fetch(`https://drift-and-play-server.vercel.app/toys?sort=descending`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -53,7 +53,7 @@ const AllToys = () => {
     }
 
     const handleAscending = () => {
-        fetch(`http://localhost:5000/toys?sort=ascending`)
+        fetch(`https://drift-and-play-server.vercel.app/toys?sort=ascending`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
