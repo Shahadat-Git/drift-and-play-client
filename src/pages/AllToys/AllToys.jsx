@@ -43,23 +43,6 @@ const AllToys = () => {
             })
     }
 
-    const handleDescending = () => {
-        fetch(`https://drift-and-play-server.vercel.app/toys?sort=descending`)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data)
-                setToys(data)
-            })
-    }
-
-    const handleAscending = () => {
-        fetch(`https://drift-and-play-server.vercel.app/toys?sort=ascending`)
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data)
-                setToys(data)
-            })
-    }
     return (
         <div className='container mx-auto my-20'>
             <Helmet>
@@ -71,17 +54,7 @@ const AllToys = () => {
                 <input className='btn btn-primary btn-sm h-10 rounded-r-lg rounded-l-none' type="submit" value="Search" />
             </form>
 
-            {/* sort btn */}
-
-            <div className='flex justify-end'>
-                <div className="dropdown dropdown-bottom dropdown-end">
-                    <label tabIndex={0} className="btn m-1">Sort By</label>
-                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-neutral text-white rounded-box w-52 z-10">
-                        <li> <button onClick={handleDescending} className='hover:bg-neutral-500'>Price (Hign {'>'}  Low)</button> </li>
-                        <li><button onClick={handleAscending} className='hover:bg-neutral-500'>Price (Low {'>'}  Hign)</button></li>
-                    </ul>
-                </div>
-            </div>
+           {/* all toys table */}
 
             <div className="overflow-x-auto">
                 {

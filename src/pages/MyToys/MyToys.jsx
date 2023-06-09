@@ -100,11 +100,41 @@ const MyToys = () => {
         form.reset();
 
     }
+
+    const handleDescending = () => {
+        fetch(`https://drift-and-play-server.vercel.app/toys?email=${user.email}&sort=descending`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setToys(data)
+            })
+    }
+
+    const handleAscending = () => {
+        fetch(`https://drift-and-play-server.vercel.app/toys?email=${user.email}&sort=ascending`)
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setToys(data)
+            })
+    }
+
     return (
         <div className='container mx-auto my-20'>
             <Helmet>
                 <title>Drift & Play | My Toys</title>
             </Helmet>
+            {/* sort btn */}
+
+            <div className='flex justify-end'>
+                <div className="dropdown dropdown-bottom dropdown-end">
+                    <label tabIndex={0} className="btn m-1">Sort By</label>
+                    <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-neutral text-white rounded-box w-52 z-10">
+                        <li> <button onClick={handleDescending} className='hover:bg-neutral-500'>Price (Hign {'>'}  Low)</button> </li>
+                        <li><button onClick={handleAscending} className='hover:bg-neutral-500'>Price (Low {'>'}  Hign)</button></li>
+                    </ul>
+                </div>
+            </div>
             <h2 className='text-center text-2xl font-semibold mb-5'>My Total Toys : {toys.length}</h2>
             <div className="overflow-x-auto">
                 {
