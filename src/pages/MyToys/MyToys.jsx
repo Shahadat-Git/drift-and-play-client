@@ -83,7 +83,7 @@ const MyToys = () => {
         }
 
         fetch(`https://drift-and-play-server.vercel.app/toys/${toy._id}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
             },
