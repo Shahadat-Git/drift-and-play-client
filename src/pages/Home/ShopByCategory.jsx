@@ -58,7 +58,7 @@ const ShopByCategory = () => {
 
                     <TabPanel>
                         {
-                            toys.length > 0 ? <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
+                            toys.length > 0 ? <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
                                 {
                                     toys.map(toy => <CategoryCard
                                         key={toy._id}
@@ -70,7 +70,7 @@ const ShopByCategory = () => {
                     </TabPanel>
                     <TabPanel>
                         {
-                            toys.length > 0 ? <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
+                            toys.length > 0 ? <div className='grid md:grid-cols-2 grid-cols-1 lg:grid-cols-3 gap-3'>
                                 {
                                     toys.map(toy => <CategoryCard
                                         key={toy._id}
@@ -82,7 +82,7 @@ const ShopByCategory = () => {
                     </TabPanel>
                     <TabPanel>
                         {
-                            toys.length > 0 ? <div className='grid grid-cols-1 lg:grid-cols-3 gap-3'>
+                            toys.length > 0 ? <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3'>
                                 {
                                     toys.map(toy => <CategoryCard
                                         key={toy._id}

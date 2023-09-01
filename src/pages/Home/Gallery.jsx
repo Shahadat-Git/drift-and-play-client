@@ -24,7 +24,7 @@ const Gallery = () => {
             <div className='w-full'>
                 {
                     toys ?
-                        <div className='grid grid-cols-1 lg:grid-cols-4 gap-3 px-1 lg:px-0'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 px-1 lg:px-0'>
                             {
                                 toys.map(toy => <div style={{ background: `url(${toy.picture})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
                                     className='rounded h-96 lg:h-[250px] w-full shadow-lg relative bg-no-repeat'

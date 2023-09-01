@@ -6,6 +6,9 @@ import { TbTruckDelivery } from "react-icons/tb";
 import { BiDownload } from "react-icons/bi";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { Helmet } from 'react-helmet-async';
+import Blogs from './Blogs';
+import NewsLetter from './NewsLetter';
+import Advice from './Advice';
 
 const Home = () => {
     return (
@@ -31,6 +34,9 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+            <Blogs></Blogs>
+            <Advice></Advice>
+            <NewsLetter></NewsLetter>
             {/* extra section 2 */}
             <div data-aos="zoom-in" data-aos-duration="1000" className='bg-info-content my-5'>
                 <div className='container mx-auto grid lg:divide-x-2 grid-cols-1 lg:grid-cols-4 justify-center items-center  py-5 gap-2'>
@@ -64,6 +70,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
+
 
         </div>
     );
